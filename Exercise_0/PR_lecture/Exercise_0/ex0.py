@@ -14,6 +14,7 @@ from typing import List
 import networkx as nx
 import numpy as np
 import os
+import itertools
 
 from utils import load_graph, draw_graph, COLOR_MAP, NODE_LABEL
 
@@ -42,9 +43,12 @@ def part1() -> List[nx.Graph]:
                 graph = load_graph(entry.path)
                 name = entry.name.removesuffix(".graphml")
                 filename = f"./drawings/{name}.png"
-                node_color = list(COLOR_MAP.values())[: graph.number_of_nodes()]
-                draw_graph(graph, filename, node_color=node_color)
+                num_nodes = graph.number_of_nodes()
+                labels = dict(list(NODE_LABEL.items())[:num_nodes])
+                node_color = list(COLOR_MAP.values())[:num_nodes]
+                draw_graph(graph, filename, labels, node_color, nx.spring_layout)
                 graphs.append(graph)
+    print(graphs)
     return graphs
 
 
@@ -66,7 +70,13 @@ def naive_graph_isomorphism(graph1: nx.Graph, graph2: nx.Graph) -> bool:
         Returns True if the input graphs are isomorphic, else False.
     """
     # Code here
-    return False
+    if graph1.number_of_nodes() != graph2.number_of_nodes():
+        return False
+    if graph1.number_of_edges() != graph2.number_of_edges():
+        return False
+    if graph1.nodes != graph2.nodes:
+        return False
+    return True
 
 
 def part2(graphs: List[nx.Graph]) -> None:
@@ -83,7 +93,10 @@ def part2(graphs: List[nx.Graph]) -> None:
 
     """
     # Code here
-    pass
+    for graph1, graph2 in itertools.combinations(graphs, 2):
+        is_isomorphism = naive_graph_isomorphism(graph1, graph2)
+        print(f"{graph1} compare {graph2} is {is_isomorphism}")
+
 
 
 def main():
@@ -91,7 +104,7 @@ def main():
     graphs = part1()
 
     # Run part 2
-    # part2(graphs)
+    part2(graphs)
 
 
 if __name__ == "__main__":

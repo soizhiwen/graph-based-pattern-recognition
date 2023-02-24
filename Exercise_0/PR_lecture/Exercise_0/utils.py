@@ -18,7 +18,16 @@ COLOR_MAP = {
     7.0: "#420E00",
 }
 
-NODE_LABEL = "x"
+# NODE_LABEL = "x"
+NODE_LABEL = {
+    "0": 1.0,
+    "1": 2.0,
+    "2": 3.0,
+    "3": 4.0,
+    "4": 5.0,
+    "5": 6.0,
+    "6": 7.0,
+}
 
 ###############
 #   UTILS     #
@@ -60,5 +69,15 @@ def draw_graph(
 
     """
     # Code here
-    nx.draw(graph, node_color=node_color, with_labels=True)
+    pos = layout(graph, seed=3113794652)
+    options = {
+        "alpha": 0.9,
+        "node_size": 800,
+        "edgecolors": "tab:gray",
+        "font_color": "whitesmoke",
+        "node_color": node_color,
+        "labels": labels,
+        "with_labels": True,
+    }
+    nx.draw(graph, pos, **options)
     plt.savefig(filename)
