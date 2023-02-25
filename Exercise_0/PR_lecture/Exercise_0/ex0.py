@@ -48,7 +48,6 @@ def part1() -> List[nx.Graph]:
                 node_color = list(COLOR_MAP.values())[:num_nodes]
                 draw_graph(graph, filename, labels, node_color, nx.spring_layout)
                 graphs.append(graph)
-    print(graphs)
     return graphs
 
 
@@ -74,7 +73,7 @@ def naive_graph_isomorphism(graph1: nx.Graph, graph2: nx.Graph) -> bool:
         return False
     if graph1.number_of_edges() != graph2.number_of_edges():
         return False
-    if graph1.nodes != graph2.nodes:
+    if list(graph1.nodes) != list(graph2.nodes):
         return False
     return True
 
@@ -93,10 +92,18 @@ def part2(graphs: List[nx.Graph]) -> None:
 
     """
     # Code here
-    for graph1, graph2 in itertools.combinations(graphs, 2):
-        is_isomorphism = naive_graph_isomorphism(graph1, graph2)
-        print(f"{graph1} compare {graph2} is {is_isomorphism}")
+    is_isomorphism = []
+    for graph1, graph2 in itertools.combinations_with_replacement(graphs, 2):
+        is_isomorphism.append(naive_graph_isomorphism(graph1, graph2))
 
+    n = 5
+    m = np.zeros((n, n), dtype=int)
+    for i in range(0, n):
+        m[i][i:] = is_isomorphism[: n - i]
+        is_isomorphism = is_isomorphism[n - i :]
+
+    m = m + m.T - np.diag(np.diag(m))
+    np.savetxt("./results/naive_isomorphic_test.csv", m, fmt="%i", delimiter=",")
 
 
 def main():

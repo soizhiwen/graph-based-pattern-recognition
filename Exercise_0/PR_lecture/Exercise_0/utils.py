@@ -79,5 +79,6 @@ def draw_graph(
         "labels": labels,
         "with_labels": True,
     }
+    plt.clf()
     nx.draw(graph, pos, **options)
     plt.savefig(filename)
