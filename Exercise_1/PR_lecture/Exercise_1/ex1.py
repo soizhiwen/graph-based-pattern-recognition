@@ -44,12 +44,6 @@ def _ullman_recursive(g1: nx.Graph, g2: nx.Graph, mapping: dict, inverse_mapping
                 is_match = False
                 break
 
-            # if u_adj in mapping:
-            #     v_adj = mapping[u_adj]
-            #     if not g2.has_edge(v, v_adj):
-            #         is_match = False
-            #         break
-
         if is_match:
             mapping[u] = v
             inverse_mapping[v] = u
