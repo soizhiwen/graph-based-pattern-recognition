@@ -81,7 +81,7 @@ if __name__ == "__main__":
     graphs = utils.load_all_graphs("./graphs")
 
     # 1.5 (You can visualize the graphs using utils.draw_all_graphs())
-    utils.draw_all_graphs(graphs, "./drawings", False)
+    # utils.draw_all_graphs(graphs, "./drawings", False)
 
     # 2. Perform the Ullman's subgraph isomorphic test between all pairs of graphs.
     n = 6
