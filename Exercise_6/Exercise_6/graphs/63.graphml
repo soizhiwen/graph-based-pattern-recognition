@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d5" for="edge" attr.name="valence" attr.type="string" />
+  <key id="d4" for="node" attr.name="y" attr.type="string" />
+  <key id="d3" for="node" attr.name="x" attr.type="string" />
+  <key id="d2" for="node" attr.name="charge" attr.type="string" />
+  <key id="d1" for="node" attr.name="chem" attr.type="string" />
+  <key id="d0" for="node" attr.name="symbol" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="_1">
+      <data key="d0">O  </data>
+      <data key="d1">2</data>
+      <data key="d2">0</data>
+      <data key="d3">3.0878</data>
+      <data key="d4">1.6739</data>
+    </node>
+    <node id="_2">
+      <data key="d0">C  </data>
+      <data key="d1">1</data>
+      <data key="d2">0</data>
+      <data key="d3">3.0878</data>
+      <data key="d4">0.6739</data>
+    </node>
+    <node id="_3">
+      <data key="d0">N  </data>
+      <data key="d1">4</data>
+      <data key="d2">0</data>
+      <data key="d3">2.2788</data>
+      <data key="d4">0.0861</data>
+    </node>
+    <node id="_4">
+      <data key="d0">C  </data>
+      <data key="d1">1</data>
+      <data key="d2">0</data>
+      <data key="d3">3.8968</data>
+      <data key="d4">0.0861</data>
+    </node>
+    <node id="_5">
+      <data key="d0">C  </data>
+      <data key="d1">1</data>
+      <data key="d2">0</data>
+      <data key="d3">2.5878</data>
+      <data key="d4">-0.8649</data>
+    </node>
+    <node id="_6">
+      <data key="d0">S  </data>
+      <data key="d1">5</data>
+      <data key="d2">0</data>
+      <data key="d3">3.5878</data>
+      <data key="d4">-0.8649</data>
+    </node>
+    <node id="_7">
+      <data key="d0">N  </data>
+      <data key="d1">4</data>
+      <data key="d2">0</data>
+      <data key="d3">2</data>
+      <data key="d4">-1.6739</data>
+    </node>
+    <edge source="_1" target="_2">
+      <data key="d5">2</data>
+    </edge>
+    <edge source="_2" target="_3">
+      <data key="d5">1</data>
+    </edge>
+    <edge source="_2" target="_4">
+      <data key="d5">1</data>
+    </edge>
+    <edge source="_3" target="_5">
+      <data key="d5">1</data>
+    </edge>
+    <edge source="_4" target="_6">
+      <data key="d5">1</data>
+    </edge>
+    <edge source="_5" target="_7">
+      <data key="d5">2</data>
+    </edge>
+    <edge source="_5" target="_6">
+      <data key="d5">1</data>
+    </edge>
+  </graph>
+</graphml>
