@@ -56,7 +56,8 @@ def load_all_graphs(folder: str) -> List[nx.Graph]:
     Returns:
         A list of NetworkX Graph objects.
     """
-    graph_files = glob(os.path.join(folder, '*.graphml'))
+    import re
+    graph_files = sorted(glob(os.path.join(folder, '*.graphml')), key=lambda x:float(re.findall("(\d+)",x)[0]))
     graphs = [load_graph(graph_file) for graph_file in graph_files]
 
     return graphs
